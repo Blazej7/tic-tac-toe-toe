@@ -24,12 +24,12 @@ ol, ul {
   font-size: 24px;
   font-weight: bold;
   line-height: 34px;
-  height: 34px;
+  height: 94px;
   margin-right: -1px;
   margin-top: -1px;
   padding: 0;
   text-align: center;
-  width: 34px;
+  width: 94px;
 }
 
 .square:focus {
@@ -43,8 +43,29 @@ ol, ul {
 .game {
   display: flex;
   flex-direction: row;
+  margin:0;
+  padding: 0;
+  border: 0;
 }
 
 .game-info {
   margin-left: 20px;
+}
+
+.knight {
+  display: flex;
+  background-image: url(knight.png);
+  background-size: 90px;
+  padding: 45px;
+  display: flex;
+  text-decoration: none;
+  border: none;
+}
+.zombie {
+  background-image: url(zombie2.png);
+  background-size: 90px;
+  padding: 45px;
+  display: flex;
+  text-decoration: none;
+  border: none;
 }

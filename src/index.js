@@ -56,7 +56,10 @@ function Square(props) {
       };
     }
 
-    handleClick(i) {
+    handleClick(i) { 
+      let knight = <div className='knight' key='X'></div>;
+      let zombie = <div className='zombie' key='Y'></div>;
+      
       const history = this.state.history.slice(0,
   this.state.stepNumber + 1);
       const current = history[history.length - 1];
@@ -64,7 +67,7 @@ function Square(props) {
       if (calculateWinner(squares) || squares[i]) {
         return;
       }
-      squares[i] = this.state.xIsNext ? 'X' : 'O';
+      squares[i] = this.state.xIsNext ? knight : zombie;
       this.setState({
         history: history.concat([{
           squares: squares,
@@ -88,8 +91,8 @@ function Square(props) {
 
       const moves = history.map((step, move) => {
         const desc = move ?
-          'Przejdź do ruchu #' + move :
-          'Przejdź na począteg gry';
+          'Go to move #' + move :
+          'Go to game start';
         return (
           <li key={move}>
             <button onClick={() => this.jumpTo(move)}>
@@ -100,9 +103,9 @@ function Square(props) {
   
       let status;
       if (winner) {
-        status = 'Wygrywa: ' + winner;
+        status = 'Winner: ' + winner;
       } else {
-        status = 'Następny gracz: ' + (this.state.xIsNext ? 'X' : 'O');
+        status = 'Next player: ' + (this.state.xIsNext ? 'Knight' : 'Zombie');
       }
   
       return (
